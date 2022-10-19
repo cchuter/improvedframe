@@ -44,7 +44,7 @@
 #define eepromURL EEPROM.readString(EEPROM_START_ADDR+SSID_SIZE+SSIDPASS_SIZE+2)
 #define eepromRefresh EEPROM.readString(EEPROM_START_ADDR+SSID_SIZE+SSIDPASS_SIZE+URL_SIZE+3)
 
-Inkplate display(INKPLATE_1BIT); // Create an object on Inkplate library and also set library into 1 Bit mode (BW)
+Inkplate display(INKPLATE_3BIT);
 WebServer server(80);            // Create Web server on port 80 (HTTP port number)
 
 IPAddress serverIP;
@@ -69,9 +69,9 @@ void setup() {
     display.clearDisplay();             // Clear frame buffer of display
     display.display();                  // Put clear image on display
 
-    display.setTextSize(3);             // Scale text to be two times bigger then original (5x7 px)
-    display.setTextColor(BLACK, WHITE); // Set text color to black and background color to white
-    display.setTextWrap(true);          // If text does not fit on screen, send it to new line
+    display.setTextSize(4);
+    display.setTextColor(BLACK);
+    display.setTextWrap(true);
 
     // Start WiFi
     WiFi.begin();            // Init. WiFi library
